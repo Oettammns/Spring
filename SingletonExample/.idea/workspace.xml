@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="903bead8-41eb-476f-91ca-6156572fce09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Spring_Example/src/main/java/com/example/Spring_Example/Controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_Example/src/main/java/com/example/Spring_Example/Model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_Example/src/main/java/com/example/Spring_Example/Repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Singleton/out/production/Singleton/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Singleton/out/production/Singleton/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Singleton/out/test/Singleton/UserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Singleton/out/test/Singleton/UserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Singleton/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Singleton/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Singleton/test/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Singleton/test/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2G8Ee5Hv9sgUj7zc4A5ZVc1bs8I" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Spring_Example" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.26551723" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.UserTest.testInstance">
+    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SingletonExample" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.testInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SingletonExample" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserTest" />
+      <option name="METHOD_NAME" value="testInstance" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserTest.testInstance" />
+        <item itemvalue="JUnit.UserTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="903bead8-41eb-476f-91ca-6156572fce09" name="Changes" comment="" />
+      <created>1665761905460</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665761905460</updated>
+      <workItem from="1665761906651" duration="208000" />
+      <workItem from="1665762577110" duration="33000" />
+      <workItem from="1665762673736" duration="215000" />
+      <workItem from="1665835060720" duration="1202000" />
+      <workItem from="1665844090104" duration="1109000" />
+      <workItem from="1665865251225" duration="55000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
