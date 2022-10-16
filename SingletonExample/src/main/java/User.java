@@ -1,5 +1,5 @@
 public class User {
-    private static User INSTANCE;
+    private static final User INSTANCE;
     private long id;
     private String firstName;
     private String lastName;
