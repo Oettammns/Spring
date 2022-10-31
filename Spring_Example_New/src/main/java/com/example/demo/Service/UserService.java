@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Errors.UserNotFoundException;
 import com.example.demo.Model.User;
 import com.example.demo.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,13 @@ import java.util.List;
 @Transactional
 public class UserService implements UserServiceInterface{
 
-    @Autowired
+
     private UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User createUser(User user) {
@@ -37,9 +43,16 @@ public class UserService implements UserServiceInterface{
 
 
     @Override
-    public User getUserById(Long id) {
-        User user = userRepository.findById(id).get();
-        return user;
+    public User getUserById(Long id) throws UserNotFoundException {
+    //    User user = userRepository.findById(id).get();
+        return userRepository.findById(id).stream().findFirst().orElseThrow(() -> new UserNotFoundException("user not found"));
+    }
+
+    @Override
+    public User getUserByName(String name) throws UserNotFoundException {
+        return userRepository.findAll().stream().filter(user -> user.getFirstName().equals(name))
+                .findFirst()
+                .orElseThrow(() -> new UserNotFoundException("user not found"));
     }
 
     @Override
