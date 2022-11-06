@@ -12,11 +12,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+
 public class UserController {
 
-    /*da capire se anche qui da mettere nel costruttore*/
-    @Autowired
+
+
     UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/users")
     public List<User> getAllUsers(){
@@ -35,16 +41,8 @@ public class UserController {
         User user = userService.getUserByName(name);
         return ResponseEntity.ok().body(user);
     }
-    /*
-    @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestParam(name="firstName") @Validated String name,@RequestParam(name="lastName") @Validated String lastName,@RequestParam(name="email") @Validated String email){
-        User user = new User(name,lastName,email);
-        return new ResponseEntity<>(this.userService.createUser(user), HttpStatus.CREATED);
-    }*/
 
-
-
-    @PostMapping("/users")
+    @RequestMapping(value ="/users", method = RequestMethod.POST)
     public ResponseEntity<User> createUser(@RequestBody @Validated User user){
         return new ResponseEntity<>(this.userService.createUser(user), HttpStatus.CREATED);
     }

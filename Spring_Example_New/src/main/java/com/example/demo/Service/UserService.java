@@ -38,6 +38,7 @@ public class UserService implements UserServiceInterface{
 
     @Override
     public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 
@@ -57,7 +58,7 @@ public class UserService implements UserServiceInterface{
 
     @Override
     public void deleteUser(Long id) {
-        User user = userRepository.findById(id).get();
-        this.userRepository.delete(user);
+      //  User user = userRepository.findById(id).get();
+        this.userRepository.deleteById(id);
     }
 }

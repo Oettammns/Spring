@@ -64,20 +64,7 @@ class UserControllerTest {
 
 
     }
-
-    /*da capire come inizializzare lo user
-    @Test
-    void testDelete() throws Exception {
-        when(userService.getAllUsers())
-                .thenReturn(List.of(new User("Matteo", "Mansi","matteo.mansi@gmail.com")));
-
-        mockMvc.perform(MockMvcRequestBuilders.delete("/users/1"))
-                .andDo(print())
-                .andExpect(status().isNoContent());
-
-    }
-     */
-
+    //java.lang.AssertionError: Response status expected:<201> but was:<404>
     @Test
     void testUpdate() throws Exception {
         /*
@@ -88,11 +75,7 @@ class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.firstName").value("Matteo"))
                 .andExpect(jsonPath("$.email").value("matteoMail@gmail.com"));*/
-        UserDto userDto = UserDto.builder()
-                .firstName("Matteo")
-                .lastName("Mansi")
-                .email("matteo.mansi@mail.com")
-                .build();
+
 
         when(userService.getAllUsers())
                 .thenReturn(List.of(new User("Matteo", "Mansi","matteo.mansi@mail.com")));
@@ -101,6 +84,23 @@ class UserControllerTest {
                 ).andExpect(status().is(201))
                 .andExpect(jsonPath("$.firstName").value("Matteo"));
 
+
+    }
+    //java.lang.AssertionError: Content type not set
+    @Test
+    void testCreate() throws Exception{
+        User expected=new User("Matteo","Mansi","matteo.mansi@mail.com");
+
+        Gson gson=new Gson();
+        this.mockMvc
+                .perform(MockMvcRequestBuilders.post("/users")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(gson.toJson(expected)))
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.firstName").value("Matteo"))
+                .andExpect(jsonPath("$.email").value("matteo.mansi@mail.com"));
 
     }
 

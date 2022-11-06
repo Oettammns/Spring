@@ -7,6 +7,7 @@ import com.example.demo.Service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,13 +23,14 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class UserControllerUnitTest {
 
     @Autowired
+    @Mock
     private UserService service;
 
     @MockBean
@@ -37,35 +39,51 @@ class UserControllerUnitTest {
     @InjectMocks
     private UserController controller;
 
+    /*
+    *
+    * org.opentest4j.AssertionFailedError:
+        Expected :0
+        Actual   :2
+    * */
     @Test
     void getAllUsers() {
-        when(repository.findAll()).thenReturn(Stream
-                .of(new User("Matteo", "Mansi", "matteo.mansi@gmail,.com"), new User("Mario", "Rossi", "mario.rossi@gmai.com")).collect(Collectors.toList()));
-        assertEquals(2, service.getAllUsers().size());
+        when(service.getAllUsers()).thenReturn(List
+                .of(new User("Matteo", "Mansi", "matteo.mansi@gmail,.com"), new User("Mario", "Rossi", "mario.rossi@gmai.com")));
+
+        List<User> result = controller.getAllUsers();
+
+        assertEquals(result.size(),service.getAllUsers().size());
+
     }
 
-    @Test
-    void getUserById() throws UserNotFoundException {
-        User expected=new User("Matteo","Mansi","matteo@gmail.com");
-
-        when(service.getUserById(expected.getId())).thenReturn((User) List.of(expected));
-
-        ResponseEntity<User> result = controller.getUserById(expected.getId());
-
-        assertNotNull(result);
-        assertEquals(result, expected);
-    }
-
+    //java.lang.NullPointerException: Cannot invoke "com.example.demo.Model.User.getFirstName()" because the return value of "org.springframework.http.ResponseEntity.getBody()" is null
     @Test
     void createUser() {
         User user = new User("User2", "Cognome", "email@gmai.com");
-        when(repository.save(user)).thenReturn(user);
-        assertEquals(user, service.createUser(user));
+        when(service.createUser(user)).thenReturn(user);
+
+        ResponseEntity<User> result=controller.createUser(user);
+        assertEquals(user.getFirstName(), result.getBody().getFirstName());
+    }
+
+    //java.util.NoSuchElementException: No value present
+    @Test
+    void updateUser(){
+        User user = new User(1,"User2", "Cognome", "email@gmai.com");
+        when(service.updateUser(user)).thenReturn(user);
+
+        ResponseEntity<String> res = controller.updateUser(user);
+
+        assertEquals("valid update",res);
+
     }
 
 
 
     @Test
     void deleteUser() {
+        User user = new User( "Matteo", "Mansi", "matteo.mansi@gmail.com");
+        service.deleteUser(user.getId());
+        verify(repository, times(1)).delete(user);
     }
 }
