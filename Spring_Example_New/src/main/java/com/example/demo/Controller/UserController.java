@@ -5,6 +5,7 @@ import com.example.demo.Model.User;
 import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,9 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @RequestMapping(value ="/users", method = RequestMethod.POST)
+    @RequestMapping(value ="/users", method = RequestMethod.POST,
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
     public ResponseEntity<User> createUser(@RequestBody @Validated User user){
         return new ResponseEntity<>(this.userService.createUser(user), HttpStatus.CREATED);
     }

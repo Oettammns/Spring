@@ -64,12 +64,13 @@ class UserServiceTest {
 
     @Test
     void deleteUser() {
-        User u1 = new User(1,"Matteo","Mansi","matteo@gmail.com");
-        service.createUser(u1);
+       // User u1 = new User(1,"Matteo","Mansi","matteo@gmail.com");
+       // service.createUser(u1);
+        int size = service.getAllUsers().size();
+        service.deleteUser(5L);
 
-        service.deleteUser(u1.getId());
 
-        assertEquals(service.getAllUsers().size(),0);
+        assertEquals(service.getAllUsers().size(),size-1);
 
 
     }

@@ -7,15 +7,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
+//@EntityScan
+//@EnableJpaRepositories
 public class SpringExampleH2Application {
 
 	public static void main(String[] args) {
 
 		ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(SpringExampleH2Application.class, args);
 		UserRepository userRepository = configurableApplicationContext.getBean(UserRepository.class);
-
+		/*
 		User user = new User("Matteo" , "Mansi" , "matteo.mansi@unito.com");
-		userRepository.save(user);
+		userRepository.save(user);*/
 	}
 
 }

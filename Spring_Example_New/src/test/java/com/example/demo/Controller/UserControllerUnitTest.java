@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -27,6 +28,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
+//@TestPropertySource(locations="classpath:test.properties")
 class UserControllerUnitTest {
 
     @Autowired
@@ -44,7 +46,7 @@ class UserControllerUnitTest {
     * org.opentest4j.AssertionFailedError:
         Expected :0
         Actual   :2
-    * */
+    */
     @Test
     void getAllUsers() {
         when(service.getAllUsers()).thenReturn(List
@@ -86,4 +88,5 @@ class UserControllerUnitTest {
         service.deleteUser(user.getId());
         verify(repository, times(1)).delete(user);
     }
+
 }
