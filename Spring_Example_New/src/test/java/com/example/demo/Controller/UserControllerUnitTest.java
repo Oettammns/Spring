@@ -28,10 +28,9 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-//@TestPropertySource(locations="classpath:test.properties")
+//@TestPropertySource(locations="classpath:application-test.properties")
 class UserControllerUnitTest {
-
-    @Autowired
+    //@Autowired
     @Mock
     private UserService service;
 
@@ -41,24 +40,15 @@ class UserControllerUnitTest {
     @InjectMocks
     private UserController controller;
 
-    /*
-    *
-    * org.opentest4j.AssertionFailedError:
-        Expected :0
-        Actual   :2
-    */
     @Test
     void getAllUsers() {
-        when(service.getAllUsers()).thenReturn(List
-                .of(new User("Matteo", "Mansi", "matteo.mansi@gmail,.com"), new User("Mario", "Rossi", "mario.rossi@gmai.com")));
-
+        User expected=new User(1,"Matteo","Mansi","matteo@gmail.com");
+        when(service.getAllUsers()).thenReturn(List.of(expected));
         List<User> result = controller.getAllUsers();
 
         assertEquals(result.size(),service.getAllUsers().size());
 
     }
-
-    //java.lang.NullPointerException: Cannot invoke "com.example.demo.Model.User.getFirstName()" because the return value of "org.springframework.http.ResponseEntity.getBody()" is null
     @Test
     void createUser() {
         User user = new User("User2", "Cognome", "email@gmai.com");
@@ -76,17 +66,8 @@ class UserControllerUnitTest {
 
         ResponseEntity<String> res = controller.updateUser(user);
 
-        assertEquals("valid update",res);
+        assertEquals("valid update",res.getBody());
 
-    }
-
-
-
-    @Test
-    void deleteUser() {
-        User user = new User( "Matteo", "Mansi", "matteo.mansi@gmail.com");
-        service.deleteUser(user.getId());
-        verify(repository, times(1)).delete(user);
     }
 
 }

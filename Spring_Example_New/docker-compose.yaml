@@ -1,15 +1,24 @@
 version: '3'
 
 services:
+  app:
+    image: springboot-example-docker
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - local-postgres-compose
   local-postgres-compose:
     image: postgres
     environment:
       POSTGRES_PASSWORD: "YamahaF50."
+      POSTGRES_USER: //da capire
+      POSTGRES_DB: "postgres"
     ports:
       - "5432:5432"
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/users_data.sql
     networks:
       - postgres-compose-network
 
